@@ -3,8 +3,11 @@ package com.example.listview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +32,22 @@ public class MainActivity extends AppCompatActivity {
         // ListView listView = (ListView) findViewById(R.id.list_view);
         // listView.setAdapter(adapter); // 向listView传递构建好的适配器对象
 
-        //
+
         initFruits();
         FruitAdapter adapter = new FruitAdapter(MainActivity.this,
-                R.layout.fruit_item, fruitList);
+                R.layout.fruit_item, fruitList); // 通过自定义适配器传递自定义子项布局给ListView
         ListView listView = (ListView) findViewById(R.id.list_view);
         listView.setAdapter(adapter); // 向listView传递构建好的适配器对象
+
+        // ListView子项点击事件
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Fruit fruit = fruitList.get(position);
+                Toast.makeText(MainActivity.this, fruit.getName(),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initFruits() {
