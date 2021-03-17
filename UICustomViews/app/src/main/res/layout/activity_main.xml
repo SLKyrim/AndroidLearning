@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--&lt;!&ndash;通过include引入自定义控件&ndash;&gt;-->
+    <!--<include layout="@layout/title" />-->
+
+    <!--引入自定义控件类-->
+    <com.example.uicustomviews.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
